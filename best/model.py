@@ -31,8 +31,8 @@ class Model:
 
             r = pm.StudentT('posterior_dist', mu=mu, lam=lam, nu=nu, observed=self._diff)
 
-            diff_of_means = pm.Deterministic('Mean', mu)
-            diff_of_stds = pm.Deterministic('Std. dev', sigma)
+            mean = pm.Deterministic('Mean', mu)
+            std = pm.Deterministic('Std. dev', sigma)
             effect_size = pm.Deterministic('Effect size', mu / sigma)
 
         with posterior:
