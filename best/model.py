@@ -1,7 +1,6 @@
 import pymc3 as pm
 import numpy as np
-from best.plot import plot
-from best.utils import get_mean_metrics
+
 
 class Model:
     PRECISION_SCALING = 1e-6
