@@ -3,7 +3,7 @@ import random
 import seaborn as sns
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
-from pymc.distributions import noncentral_t_like
+import scipy.stats as st
 from matplotlib.transforms import blended_transform_factory
 
 from best.utils import calculate_statistics
@@ -122,15 +122,16 @@ def plot_posterior_distribution(ax, trace, model):
     ax.set_xlabel('y', fontweight='bold')
     ax.set_ylabel('p(y)', fontweight='bold')
 
-    idxs = random.sample(list(range(len(means))), 50)
-    x = np.linspace(bins[0], bins[-1], 100)
+    n_curves = 50
+    idxs = random.sample(list(range(len(means))), n_curves)
+    x = np.linspace(bins[0], bins[-1], 1000)
 
     for i in idxs:
         mu = means[i]
-        lam = 1 / stds[i] ** 2
+        std = stds[i]
         nu = numos[i] + 1
 
-        v = np.exp([noncentral_t_like(xi, mu, lam, nu) for xi in x])
+        v = st.t.pdf(x, nu, mu, std)
         ax.plot(x, v, color='#89d1ea', zorder=-10)
 
     ax.text(0.8, 0.95, r'$\mathrm{N}=%d$' % len(observations),

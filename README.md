@@ -14,7 +14,7 @@ BEST](http://www.indiana.edu/~kruschke/BEST/) for more information.
 ## Requirements ##
 
  * tested with Python 3.6
- * [PyMC3](https://docs.pymc.io/) and [PyMC](https://github.com/pymc-devs/pymc) for MCMC sampling
+ * [PyMC3](https://docs.pymc.io/) for MCMC sampling
  * [matplotlib](http://matplotlib.org) and [seaborn](https://seaborn.pydata.org/) for plotting
 
 ## Example ##
