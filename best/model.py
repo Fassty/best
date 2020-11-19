@@ -8,11 +8,6 @@ class Model:
     NORMALITY_THRESHOLD = 29  # since 30 the distribution is considered normal
 
     def __init__(self, group_1: np.ndarray, group_2: np.ndarray):
-        if not np.all(np.diff(group_1) >= 0):
-            np.sort(group_1)
-        if not np.all(np.diff(group_1) >= 0):
-            np.sort(group_2)
-
         self._diff = group_1 - group_2
         self._diff_std = np.std(self._diff).item()
         self._diff_mean = np.mean(self._diff).item()
