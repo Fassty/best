@@ -116,7 +116,7 @@ def plot_posterior_distribution(ax, trace, model):
     stds = trace['Std. dev']
     numos = trace['Normality']
 
-    bins = np.linspace(np.min(observations), np.max(observations), 20)
+    bins = np.linspace(np.min(observations), np.max(observations), len(observations) // 2)
 
     ax.hist(observations, bins=bins, rwidth=0.5, facecolor='r', edgecolor='none', density=True)
     ax.set_xlabel('y', fontweight='bold')
