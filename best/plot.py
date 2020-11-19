@@ -118,11 +118,7 @@ def plot_posterior_distribution(ax, trace, model):
 
     bins = np.linspace(np.min(observations), np.max(observations), len(observations) // 2)
 
-    ax.hist(observations, bins=bins, rwidth=0.5, facecolor='r', edgecolor='none', density=True)
-    ax.set_xlabel('y', fontweight='bold')
-    ax.set_ylabel('p(y)', fontweight='bold')
-
-    n_curves = 50
+    n_curves = 30
     idxs = random.sample(list(range(len(means))), n_curves)
     x = np.linspace(bins[0], bins[-1], 1000)
 
@@ -132,7 +128,12 @@ def plot_posterior_distribution(ax, trace, model):
         nu = numos[i] + 1
 
         v = st.t.pdf(x, nu, mu, std)
-        ax.plot(x, v, color='#89d1ea', zorder=-10)
+        ax.plot(x, v, color='#89d1ea', zorder=-10, lw=0.1)
+
+    ax.hist(observations, bins=bins, rwidth=0.2, facecolor='r', edgecolor='none', density=True)
+    ax.set_xlabel('y', fontweight='bold')
+    ax.set_ylabel('p(y)', fontweight='bold')
+
 
     ax.text(0.8, 0.95, r'$\mathrm{N}=%d$' % len(observations),
             transform=ax.transAxes,
