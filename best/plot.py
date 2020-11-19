@@ -134,7 +134,6 @@ def plot_posterior_distribution(ax, trace, model):
     ax.set_xlabel('y', fontweight='bold')
     ax.set_ylabel('p(y)', fontweight='bold')
 
-
     ax.text(0.8, 0.95, r'$\mathrm{N}=%d$' % len(observations),
             transform=ax.transAxes,
             horizontalalignment='left',
@@ -169,7 +168,5 @@ def plot(model, trace, rope_width=0.1, figure_name='posterior.png'):
 
     ax5 = figure.add_subplot(gs[:-1, 1])
     plot_posterior_distribution(ax5, trace, model)
-
-    plt.tight_layout()
 
     plt.savefig(figure_name)
