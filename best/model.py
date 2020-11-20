@@ -30,6 +30,6 @@ class Model:
             effect_size = pm.Deterministic('Effect size', mu / sigma)
 
         with posterior:
-            trace = pm.sample(it)
+            trace = pm.sample(it, chains=1)
 
         return posterior, trace
