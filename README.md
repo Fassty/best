@@ -8,7 +8,7 @@ This Python package implements the software described in
 It implements Bayesian estimation for a single group, providing complete
 distributions for effect size, group means,
 standard deviations and the normality of the
-data. See John Kruschke's [website on
+data. As well as the visualization of posterior distribution curves and a quality of fit. See John Kruschke's [website on
 BEST](http://www.indiana.edu/~kruschke/BEST/) for more information.
 
 ## Requirements ##
