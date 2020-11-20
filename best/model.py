@@ -1,6 +1,9 @@
 import pymc3 as pm
 import numpy as np
 
+import logging
+logger = logging.getLogger('pymc3')
+logger.setLevel(logging.ERROR)
 
 class Model:
     PRECISION_SCALING = 1e-6
